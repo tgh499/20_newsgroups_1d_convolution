@@ -1,6 +1,6 @@
 ![Accuracy for different perplexities of t-SNE. Also shows how our feature embedding method achieved superior resutls using Euclidean and JS distance metrics.](20ng_accuracy.png)
 
-**Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior resutls using Euclidean and JS distance metrics.
+**Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior results using Euclidean and JS distance metrics.
 
 
 **Transformation**: Each raw document -> a function using GloVe word embeddings -> Scaled between [0,255] to imitate black and white images -> features reorganized using the Feature Embedding method
