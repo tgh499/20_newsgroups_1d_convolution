@@ -24,41 +24,17 @@ def entropy(signal):
 def get_entropy_sample_from_patch_entropy(image_sample):
     #image_sample_normalized = np.true_divide(image_sample, 255)
     new_image_sample = []
+    ranges = list(range(255, 0, -15))
+    range_dict = {}
+    for item,value in enumerate(ranges):
+        range_dict[value] = item 
+
     for index, feature in enumerate(image_sample):
-        if feature >= 240:
-            new_image_sample.append(16)
-        elif feature >= 225:
-            new_image_sample.append(15)
-        elif feature >= 210:
-            new_image_sample.append(14)
-        elif feature >= 195:
-            new_image_sample.append(13)
-        elif feature >= 180:
-            new_image_sample.append(12)
-        elif feature >= 165:
-            new_image_sample.append(11)
-        elif feature >= 150:
-            new_image_sample.append(10)
-        elif feature >= 135:
-            new_image_sample.append(9)
-        elif feature >= 120:
-            new_image_sample.append(8)
-        elif feature >= 105:
-            new_image_sample.append(7)
-        elif feature >= 90:
-            new_image_sample.append(6)
-        elif feature >= 75:
-            new_image_sample.append(5)
-        elif feature >= 60:
-            new_image_sample.append(4)
-        elif feature >= 45:
-            new_image_sample.append(3)
-        elif feature >= 30:
-            new_image_sample.append(2)
-        elif feature >= 15:
-            new_image_sample.append(1)
-        else:
-            new_image_sample.append(0)
+        for item in ranges:
+            if feature >= item:
+		new_image_sample.append(range_dict[item])
+            else:
+                new_image_sample.append(0)
 
     N = 4
     patches = []
