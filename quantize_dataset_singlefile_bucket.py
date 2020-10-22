@@ -24,17 +24,16 @@ def entropy(signal):
 def get_entropy_sample_from_patch_entropy(image_sample):
     #image_sample_normalized = np.true_divide(image_sample, 255)
     new_image_sample = []
-    ranges = list(range(255, 0, -15))
+    ranges = list(range(0, 256, 15))
     range_dict = {}
     for item,value in enumerate(ranges):
-        range_dict[value] = item 
+        range_dict[value] = item
 
     for index, feature in enumerate(image_sample):
         for item in ranges:
-            if feature >= item:
-		new_image_sample.append(range_dict[item])
-            else:
-                new_image_sample.append(0)
+            if feature <= item:
+                new_image_sample.append(range_dict[item])
+                break
 
     N = 4
     patches = []
@@ -45,7 +44,7 @@ def get_entropy_sample_from_patch_entropy(image_sample):
         patch = new_image_sample[Lx:Ux]
         if len(patch) == N * 2:
             patches.append(entropy(patch))
-    
+
     return(np.mean(patches))
 
 
@@ -104,7 +103,7 @@ def get_entropy_of_dataset(filename_prefix):
     #new_dataset_pd.to_csv(output_filename, encoding='utf-8', index=False, header=None)
 
 def get_entropy_of_datasets_for_diff_perplexity(filename_suffix, perplexity):
-    
+
     data = pd.read_csv('test_randomized.csv', header=None)
     data = data.head(1000)
     features= data.columns[1:]
@@ -115,7 +114,7 @@ def get_entropy_of_datasets_for_diff_perplexity(filename_suffix, perplexity):
     data_label_np = data_label.to_numpy()
     mapping_filename = "mapping" + filename_suffix + str(perplexity) + ".csv"
 
-    tsne_mapped_dataset = rearrange_feature_indices(mapping_filename, data_features_np)        
+    tsne_mapped_dataset = rearrange_feature_indices(mapping_filename, data_features_np)
     entropy_dataset = []
     for i in range(len(tsne_mapped_dataset)):
         temp_new_sample = []
