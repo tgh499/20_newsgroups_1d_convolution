@@ -2,6 +2,11 @@
 
 **Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior results using Euclidean and JS distance metrics.
 
+**What is feature embedding?**
+
+It is a feature re-organization method that my teammates and I developed to get better performance out of CNN (ConvNet) for non-image data. The high-dimensional data visulazition technique (also, dimensionality reduction technique) t-SNE, is at the heart of the feature mebedding method. t-SNE is generally used to group similar samples in a dataset. We engineer this method to group similar features. More details of this method can be found in the corresponding ACM paper (link below). 
+
+
 
 **Transformation**: Each raw document -> a function using GloVe word embeddings -> Scaled between [0,255] to imitate black and white images -> features reorganized using the Feature Embedding method
 
