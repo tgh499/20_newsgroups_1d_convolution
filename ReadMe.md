@@ -1,4 +1,4 @@
-[Accuracy for different perplexities of t-SNE. Also shows how our feature embedding method achieved superior resutls using Euclidean and JS distance metrics.](20ng_accuracy.png)
+![Accuracy for different perplexities of t-SNE. Also shows how our feature embedding method achieved superior resutls using Euclidean and JS distance metrics.](20ng_accuracy.png)
 
 **Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior results using Euclidean and JS distance metrics.
 
