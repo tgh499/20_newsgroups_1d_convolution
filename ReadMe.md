@@ -1,6 +1,6 @@
 ![Accuracy for different perplexities of t-SNE. Also shows how our feature embedding method achieved superior resutls using Euclidean and JS distance metrics.](20ng_accuracy.png)
 
-**Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior results using Euclidean and JS distance metrics.
+**Figure**: Accuracy for different perplexities of t-SNE using the transformed 20Newsgroups dataset. Also shows how our feature embedding method achieved superior results using Euclidean and JS distance metrics. Please note that the results found for 20Newsgroups dataset  do not strip the  metadata. That is very similar to explicitly telling the classifer how to classify. In these experiments, metadata (headers, footers, quotes) have been removed.
 
 **Purpose of this Project**
 This project is to prove the efficacy of the feature embedding method we developed. CNN performs exceptionally well with image data, sometimes the performance even surpasses human levels. For non-image data, their performances are not as impressive. As humans, we intuitively understand what is an image and what is not. If we take a non-image dataset, and scale/transform the samplet to make them look like images, there is a higher chance that the image will look like noise. So just scaling and transforming non-image data does not work. Natural images have shapes. We can think of the shapes as a collection of local structures (think about the nose and the eyes in the image of a human face). Using the feature embedding method, we try to transform, scale ***and also*** reorganize the features so that non-image data now contain local structures similar to natural images. Since CNN (ConvNet) take advantage of features in a neighborhood (while using the sliding windows and learning the weights), new newly organized features of non-image data samples are expected to show better performance.
@@ -9,6 +9,9 @@ This project is to prove the efficacy of the feature embedding method we develop
   <img src="20ng_transformed.png" width="300" />
   <img src="20ng_ecl_90.png" width="300" /> 
 </p>
+
+In the figures above we can see two images. The left is a direct transformation of a document. The rigt one shows a sample after applying the feature embedding method has been applied. In these two figures, the difference is very subtle. It is important to note that feature re-organization is not the same as sorting. Sorting would result in losing minute differences in samples and the performance could be worse. Documents belonging to similar categories would hold onto the internal structures. Samples coming from different categories will look different. The expectation is that the sliding window will pick up the minute differences. This will show up in the performance.
+
 
 **What is feature embedding?**
 
