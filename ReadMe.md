@@ -10,7 +10,7 @@ This project is to prove the efficacy of the feature embedding method we develop
   <img src="20ng_ecl_90.png" width="300" /> 
 </p>
 
-In the figures above we can see two images. The left is a direct transformation of a document. The rigt one shows a sample after applying the feature embedding method has been applied. In these two figures, the difference is very subtle. It is important to note that feature re-organization is not the same as sorting. Sorting would result in losing minute differences in samples and the performance could be worse. After applying the feature embedding method, Documents belonging to similar categories should hold onto their internal structures. Samples coming from different categories should look different. The expectation is that the sliding window will pick up the minute differences. This will show up in the performance.
+In the figures above we can see two images. The left is a direct transformation of a document. The right one shows a sample after applying the feature embedding method. In these two figures, the difference is very subtle. It is important to note that feature re-organization is not the same as sorting. Sorting would result in losing minute differences in samples and the performance could be worse. After applying the feature embedding method, documents belonging to similar categories should hold onto their internal structures. Samples coming from different categories should look different. The expectation is that the sliding window will pick up the minute differences. This will show up in the performance.
 
 
 **What is feature embedding?**
